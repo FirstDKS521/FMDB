@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "SYFMDBManager.h"
+#import "Person.h"
 
 @interface ViewController ()
 
@@ -16,14 +18,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    Person *person = [[Person alloc] init];
+    person.aId = @"100";
+    person.name = @"阿杜";
+    person.age = @"20";
+    person.sex = @"男";
+    person.test = @"新增";
+    [[SYFMDBManager shareManager] insertModel:person];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)search:(id)sender {
+    NSArray *array = [[SYFMDBManager shareManager] searchAllModel:[Person class]];
+    Person *person = array[0];
+    NSLog(@"name=%@, age=%@, sex=%@, add=%@", person.name, person.age, person.sex, person.test);
 }
-
 
 @end
