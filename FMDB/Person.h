@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSObject+BGModel.h"
 
 @interface Person : NSObject
 

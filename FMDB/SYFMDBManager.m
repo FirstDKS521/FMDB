@@ -8,7 +8,7 @@
 
 #import "SYFMDBManager.h"
 #import <objc/runtime.h>
-#import "FMDB.h"
+#import <FMDB.h>
 
 static NSString *const dbName = @"shanyi.sqlite"; //数据库名字
 @interface SYFMDBManager ()
